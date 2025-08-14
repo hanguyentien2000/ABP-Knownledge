@@ -1,0 +1,26 @@
+@page "{id:guid}"
+@model BookStore.Web.Pages.Tags.EditModel
+@{
+    ViewData["Title"] = "Edit Tag";
+}
+
+<h2>Edit Tag</h2>
+
+<form method="post">
+    <input type="hidden" asp-for="Id" />
+    <div class="form-group">
+        <label asp-for="Tag.Name"></label>
+        <input asp-for="Tag.Name" class="form-control" />
+        <span asp-validation-for="Tag.Name" class="text-danger"></span>
+    </div>
+    <br />
+    <div class="form-group">
+        <label asp-for="Tag.TagType"></label>
+        <input asp-for="Tag.TagType" class="form-control" />
+        <span asp-validation-for="Tag.TagType" class="text-danger"></span>
+    </div>
+    <br />
+
+    <button type="submit" class="btn btn-primary">Update</button>
+    <a asp-page="Index" class="btn btn-secondary">Cancel</a>
+</form>

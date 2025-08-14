@@ -1,0 +1,21 @@
+{
+  "culture": "vi",
+  "texts": {
+    "Permission:CoreFW": "Core Framework",
+    "Permission:Tags": "Quản lý Tag",
+    "Permission:Tags.View": "Xem Tag",
+    "Permission:Tags.Create": "Tạo Tag",
+    "Permission:Tags.Edit": "Sửa Tag",
+    "Permission:Tags.Delete": "Xóa Tag",
+
+    "TagList": "Danh sách Tag",
+    "SearchByName": "Tìm theo tên",
+    "TagType": "Loại Tag",
+    "Search": "Tìm kiếm",
+    "CreateNew": "Thêm mới",
+    "Type": "Loại",
+    "Actions": "Hành động",
+    "Edit": "Chỉnh sửa",
+    "Delete": "Xóa"
+  }
+}

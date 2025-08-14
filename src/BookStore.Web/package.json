@@ -1,0 +1,11 @@
+{
+  "version": "1.0.0",
+  "name": "my-app",
+  "private": true,
+  "dependencies": {
+    "@abp/aspnetcore.mvc.ui.theme.leptonxlite": "~9.3.1",
+    "@abp/bootstrap": "~9.3.1",
+    "@abp/jquery": "~9.3.1",
+    "@abp/font-awesome": "~9.3.1"
+  }
+}

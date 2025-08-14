@@ -1,0 +1,33 @@
+@page
+@model BookStore.Web.Pages.Books.IndexModel
+@{
+    ViewData["Title"] = "Book List";
+}
+
+<h2>Book List</h2>
+<a class="btn btn-primary" asp-page="Create">Create New</a>
+
+<table class="table mt-3">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th style="width:150px;">Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var book in Model.Books)
+        {
+            <tr>
+                <td>@book.Name</td>
+                <td>@book.Price</td>
+                <td>
+                    <a class="btn btn-sm btn-warning" asp-page="Edit" asp-route-id="@book.Id">Edit</a>
+                    <form method="post" asp-page-handler="Delete" asp-route-id="@book.Id" style="display:inline;">
+                        <button type="submit" class="btn btn-sm btn-danger" onclick="return confirm('Delete this book?');">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

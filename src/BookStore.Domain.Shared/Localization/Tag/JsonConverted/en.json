@@ -1,0 +1,23 @@
+{
+  "culture": "en",
+  "texts": {
+    "Menu:Tags": "Tags",
+    "Permission:Tags": "Tag management",
+    "Permission:Tags.Create": "Create tag",
+    "Permission:Tags.Edit": "Edit tag",
+    "Permission:Tags.Delete": "Delete tag",
+    "TagName": "Tag name",
+    "TagType": "Tag type",
+    "CreateTag": "Create Tag",
+    "EditTag": "Edit Tag",
+
+    "TagList": "Danh sách Tag",
+    "SearchByName": "Tìm theo tên",
+    "Search": "Tìm kiếm",
+    "CreateNew": "Thêm mới",
+    "Type": "Loại",
+    "Actions": "Hành động",
+    "Edit": "Chỉnh sửa",
+    "Delete": "Xóa"
+  }
+}

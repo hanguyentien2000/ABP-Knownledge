@@ -1,0 +1,75 @@
+@page
+@using BookStore.Localization.Tag
+@using BookStore.Permissions.Tag
+@using Microsoft.AspNetCore.Authorization
+@using Microsoft.Extensions.Localization
+@addTagHelper *, Volo.Abp.AspNetCore.Mvc.UI.Bootstrap
+@using Volo.Abp.AspNetCore.Mvc.UI.Bootstrap.TagHelpers.Pagination
+@model BookStore.Web.Pages.Tags.IndexModel
+@inject IAuthorizationService AuthorizationService
+@inject IStringLocalizer<TagResource> L
+@{
+    ViewData["Title"] = "Tag List";
+}
+
+<h2>@L["TagList"]</h2>
+
+<form method="get">
+    <div class="row align-items-end mb-3">
+        <div class="col-md-4">
+            <label asp-for="FilterText" class="form-label">Search by Name</label>
+            <input asp-for="FilterText" class="form-control" placeholder="Enter name..." />
+@*             <span asp-validation-for="FilterText" class="text-danger"></span>
+ *@        </div>
+
+        <div class="col-md-4">
+            <label asp-for="TagTypeFilter" class="form-label">Tag Type</label>
+            <select asp-for="TagTypeFilter" class="form-select">
+                <option value="">All</option>
+                <option value="Type1">Type 1</option>
+                <option value="Type2">Type 2</option>
+            </select>
+@*             <span asp-validation-for="TagTypeFilter" class="text-danger"></span>
+ *@        </div>
+
+        <div class="col-md-4 text-end">
+            <button type="submit" class="btn btn-primary me-2">Search</button>
+            @if (await AuthorizationService.IsGrantedAsync(TagPermissions.Tags.Create))
+            {
+                <a asp-page="./Create" class="btn btn-success">Create New</a>
+            }
+        </div>
+    </div>
+</form>
+
+<abp-table striped="true" responsive="true" hoverable-rows="true">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Tag Type</th>
+            <th>Creation Time</th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model.TagList.Items)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.TagType</td>
+                <td>@item.CreationTime.ToString("yyyy-MM-dd")</td>
+                <td>
+                    <a asp-page="./Edit" asp-route-id="@item.Id" class="btn btn-sm btn-primary">Edit</a>
+                    <a asp-page="./Delete" asp-route-id="@item.Id" class="btn btn-sm btn-danger">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</abp-table>
+
+<abp-pagination total-items="Model.TagList.TotalCount"
+                page-size="Model.PageSize"
+                current-page="Model.CurrentPage"
+                page-param="CurrentPage"
+                query-params="@(new { FilterText = Model.FilterText, TagTypeFilter = Model.TagTypeFilter, PageSize = Model.PageSize })" />
+
