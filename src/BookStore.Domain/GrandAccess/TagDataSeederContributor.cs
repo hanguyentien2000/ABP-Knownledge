@@ -27,10 +27,10 @@ namespace BookStore.GrandAccess
         public async Task SeedAsync(DataSeedContext context)
         {
             // Lấy user "hanguyen"
-            var user = await _userRepository.FindByNormalizedUserNameAsync("HANGUYEN");
+            var user = await _userRepository.FindByNormalizedUserNameAsync("administrator");
             if (user == null)
             {
-                Console.WriteLine("User 'hanguyen' không tồn tại trong hệ thống!");
+                Console.WriteLine("User 'administrator' không tồn tại trong hệ thống!");
                 return;
             }
 
@@ -41,7 +41,7 @@ namespace BookStore.GrandAccess
             await _permissionManager.SetForUserAsync(user.Id, TagPermissions.Tags.Edit, true);
             await _permissionManager.SetForUserAsync(user.Id, TagPermissions.Tags.Delete, true);
 
-            Console.WriteLine("Đã cấp toàn bộ quyền Tag cho user 'hanguyen'.");
+            Console.WriteLine("Đã cấp toàn bộ quyền Tag cho user 'administrator'.");
         }
     }
 

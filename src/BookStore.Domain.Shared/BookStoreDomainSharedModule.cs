@@ -41,21 +41,20 @@ public class BookStoreDomainSharedModule : AbpModule
             options.FileSets.AddEmbedded<BookStoreDomainSharedModule>();
         });
 
+        //Configure<AbpLocalizationOptions>(options =>
+        //{
+        //    options.Resources
+        //        .Add<BookStoreResource>("en")
+        //        .AddBaseTypes(typeof(AbpValidationResource))
+        //        .AddVirtualJson("/Localization/BookStore");
+
+        //    options.DefaultResourceType = typeof(BookStoreResource);
+        //});
+
         Configure<AbpLocalizationOptions>(options =>
         {
             options.Resources
-                .Add<BookStoreResource>("en")
-                .AddBaseTypes(typeof(AbpValidationResource))
-                .AddVirtualJson("/Localization/BookStore");
-
-            options.DefaultResourceType = typeof(BookStoreResource);
-        });
-
-
-        Configure<AbpLocalizationOptions>(options =>
-        {
-            options.Resources
-                .Add<TagResource>("vi")
+                .Add<TagResource>("en")
                 .AddBaseTypes(typeof(Volo.Abp.Validation.Localization.AbpValidationResource))
                 .AddVirtualJson("/Localization/Tag/JsonConverted");
 
