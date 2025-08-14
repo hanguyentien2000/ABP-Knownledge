@@ -10,6 +10,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\BookStore.Application.Contracts\BookStore.Application.Contracts.csproj" />
+    <ProjectReference Include="..\BookStore.Domain\BookStore.Domain.csproj" />
   </ItemGroup>
 
   <ItemGroup>
